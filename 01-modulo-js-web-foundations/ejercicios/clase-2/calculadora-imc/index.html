@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC - Fundamentos de JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="contenedor">
+        <!-- HEADER -->
+        <header class="header">
+            <h1>📊 Calculadora de IMC</h1>
+            <p class="subtitulo">Aplicando el modelo Entrada → Proceso → Salida</p>
+        </header>
+
+        <!-- SECCIÓN PRINCIPAL -->
+        <main class="main-content">
+            <!-- TARJETA DEL FORMULARIO -->
+            <section class="tarjeta formulario-section">
+                <h2>Ingresa tus datos</h2>
+                
+                <div class="formulario-grupo">
+                    <label for="peso">Peso (kg):</label>
+                    <input 
+                        type="number" 
+                        id="peso" 
+                        placeholder="Ej: 75" 
+                        min="1" 
+                        max="300"
+                        step="0.1"
+                    >
+                    <span class="validacion" id="validacion-peso"></span>
+                </div>
+
+                <div class="formulario-grupo">
+                    <label for="altura">Altura (m):</label>
+                    <input 
+                        type="number" 
+                        id="altura" 
+                        placeholder="Ej: 1.75" 
+                        min="0.5" 
+                        max="2.5"
+                        step="0.01"
+                    >
+                    <span class="validacion" id="validacion-altura"></span>
+                </div>
+
+                <button class="boton-calcular" onclick="calcularIMC()">
+                    Calcular IMC
+                </button>
+            </section>
+
+            <!-- RESULTADO -->
+            <section class="tarjeta resultado-section" id="resultado-seccion" style="display: none;">
+                <h2>Resultado</h2>
+                
+                <div class="resultado-contenido">
+                    <div class="imc-valor" id="imc-valor">--</div>
+                    <div class="imc-categoria" id="imc-categoria">--</div>
+                    
+                    <div class="detalles-resultado">
+                        <p><strong>Peso:</strong> <span id="peso-resultado">-</span> kg</p>
+                        <p><strong>Altura:</strong> <span id="altura-resultado">-</span> m</p>
+                        <p><strong>IMC:</strong> <span id="imc-resultado">-</span></p>
+                    </div>
+
+                    <button class="boton-secundario" onclick="limpiar()">
+                        Calcular de Nuevo
+                    </button>
+                </div>
+            </section>
+
+            <!-- TABLA DE CATEGORÍAS -->
+            <section class="tarjeta tabla-section">
+                <h2>📋 Categorías de IMC</h2>
+                
+                <table class="tabla-categorias">
+                    <thead>
+                        <tr>
+                            <th>Categoría</th>
+                            <th>Rango IMC</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="categoria-bajo">
+                            <td>Bajo Peso</td>
+                            <td>Menos de 18.5</td>
+                            <td>⚠️ Atención</td>
+                        </tr>
+                        <tr class="categoria-normal">
+                            <td>Peso Normal</td>
+                            <td>18.5 - 24.9</td>
+                            <td>✅ Ideal</td>
+                        </tr>
+                        <tr class="categoria-sobrepeso">
+                            <td>Sobrepeso</td>
+                            <td>25.0 - 29.9</td>
+                            <td>⚠️ Atención</td>
+                        </tr>
+                        <tr class="categoria-obeso">
+                            <td>Obesidad</td>
+                            <td>30 o más</td>
+                            <td>🚨 Crítico</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- INFORMACIÓN DEL ALGORITMO -->
+            <section class="tarjeta info-algoritmo">
+                <h2>🧠 Cómo Funciona el Algoritmo (EPS)</h2>
+                
+                <div class="eps-diagrama">
+                    <div class="eps-paso">
+                        <div class="eps-titulo">📥 ENTRADA</div>
+                        <div class="eps-contenido">
+                            <p>Peso (kg)</p>
+                            <p>Altura (m)</p>
+                        </div>
+                    </div>
+
+                    <div class="eps-flecha">→</div>
+
+                    <div class="eps-paso">
+                        <div class="eps-titulo">⚙️ PROCESO</div>
+                        <div class="eps-contenido">
+                            <p>IMC = Peso ÷ (Altura × Altura)</p>
+                        </div>
+                    </div>
+
+                    <div class="eps-flecha">→</div>
+
+                    <div class="eps-paso">
+                        <div class="eps-titulo">📤 SALIDA</div>
+                        <div class="eps-contenido">
+                            <p>Valor de IMC</p>
+                            <p>Categoría</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formula-detallada">
+                    <h3>Fórmula Detallada:</h3>
+                    <code>IMC = Peso (kg) ÷ [Altura (m)]²</code>
+                    <p class="ejemplo">Ejemplo: Para 75 kg y 1.75 m</p>
+                    <p class="calculo">75 ÷ (1.75 × 1.75) = 75 ÷ 3.0625 = 24.49</p>
+                </div>
+            </section>
+
+            <!-- CONCEPTO DE TIPOS DE DATOS -->
+            <section class="tarjeta info-tipos">
+                <h2>💻 Tipos de Datos en JavaScript</h2>
+                
+                <div class="tipos-grid">
+                    <div class="tipo-item">
+                        <div class="tipo-nombre">String</div>
+                        <div class="tipo-ejemplo">"Hola"</div>
+                        <div class="tipo-desc">Texto</div>
+                    </div>
+
+                    <div class="tipo-item">
+                        <div class="tipo-nombre">Number</div>
+                        <div class="tipo-ejemplo">75, 1.75</div>
+                        <div class="tipo-desc">Números</div>
+                    </div>
+
+                    <div class="tipo-item">
+                        <div class="tipo-nombre">Boolean</div>
+                        <div class="tipo-ejemplo">true/false</div>
+                        <div class="tipo-desc">Verdadero/Falso</div>
+                    </div>
+
+                    <div class="tipo-item">
+                        <div class="tipo-nombre">Object</div>
+                        <div class="tipo-ejemplo">{...}</div>
+                        <div class="tipo-desc">Objeto</div>
+                    </div>
+                </div>
+
+                <div class="codigo-ejemplo">
+                    <h3>Verificación de Tipos:</h3>
+                    <code id="codigo-tipos">
+// En esta calculadora usamos:<br>
+let peso = 75;        // Number<br>
+let altura = 1.75;    // Number<br>
+let imc = 24.49;      // Number (resultado)<br>
+let categoria = "Normal"; // String<br>
+<br>
+// Con typeof puedes verificar:<br>
+typeof peso;    // "number"<br>
+typeof categoria; // "string"
+                    </code>
+                </div>
+            </section>
+
+            <!-- EJERCICIOS PROPUESTOS -->
+            <section class="tarjeta ejercicios-section">
+                <h2>🎯 Ejercicios para Practicar</h2>
+                
+                <div class="ejercicio-item">
+                    <h3>Ejercicio 1: Crear una función de validación</h3>
+                    <div class="enunciado">
+                        <p>Crea una función <code>esValido(peso, altura)</code> que:</p>
+                        <ul>
+                            <li>Devuelva <code>true</code> si los datos son válidos</li>
+                            <li>Devuelva <code>false</code> si son inválidos</li>
+                            <li>Valida que peso sea > 0 y < 300</li>
+                            <li>Valida que altura sea > 0.5 y < 2.5</li>
+                        </ul>
+                    </div>
+                    <div class="solucion">
+                        <button onclick="mostrarSolucion('sol1')">Ver Solución</button>
+                        <pre id="sol1" style="display:none;"><code>function esValido(peso, altura) {
+  return peso > 0 && peso < 300 && 
+         altura > 0.5 && altura < 2.5;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="ejercicio-item">
+                    <h3>Ejercicio 2: Crear una función para categorizar</h3>
+                    <div class="enunciado">
+                        <p>Crea una función <code>obtenerCategoria(imc)</code> que:</p>
+                        <ul>
+                            <li>Reciba un valor de IMC</li>
+                            <li>Retorne la categoría correspondiente (string)</li>
+                            <li>Usa condicionales para determinar la categoría</li>
+                        </ul>
+                    </div>
+                    <div class="solucion">
+                        <button onclick="mostrarSolucion('sol2')">Ver Solución</button>
+                        <pre id="sol2" style="display:none;"><code>function obtenerCategoria(imc) {
+  if (imc < 18.5) return "Bajo Peso";
+  if (imc < 25) return "Peso Normal";
+  if (imc < 30) return "Sobrepeso";
+  return "Obesidad";
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="ejercicio-item">
+                    <h3>Ejercicio 3: Función completa de cálculo</h3>
+                    <div class="enunciado">
+                        <p>Crea una función <code>calcularImcCompleto(peso, altura)</code> que:</p>
+                        <ul>
+                            <li>Valide los datos usando la función del Ejercicio 1</li>
+                            <li>Calcule el IMC</li>
+                            <li>Obtenga la categoría usando la función del Ejercicio 2</li>
+                            <li>Retorne un objeto con los resultados</li>
+                        </ul>
+                    </div>
+                    <div class="solucion">
+                        <button onclick="mostrarSolucion('sol3')">Ver Solución</button>
+                        <pre id="sol3" style="display:none;"><code>function calcularImcCompleto(peso, altura) {
+  if (!esValido(peso, altura)) {
+    return { error: "Datos inválidos" };
+  }
+  
+  const imc = peso / (altura * altura);
+  const categoria = obtenerCategoria(imc);
+  
+  return {
+    peso: peso,
+    altura: altura,
+    imc: imc.toFixed(2),
+    categoria: categoria
+  };
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONCEPTOS CLAVE -->
+            <section class="tarjeta conceptos-section">
+                <h2>📚 Conceptos Clave Aprendidos</h2>
+                
+                <div class="conceptos-grid">
+                    <div class="concepto-card">
+                        <h3>🧮 Algoritmos (EPS)</h3>
+                        <p><strong>E</strong>ntrada → <strong>P</strong>roceso → <strong>S</strong>alida</p>
+                        <p class="desc">Estructura fundamental para resolver problemas</p>
+                    </div>
+
+                    <div class="concepto-card">
+                        <h3>📝 Variables</h3>
+                        <p>const, let, var</p>
+                        <p class="desc">Contenedores para almacenar datos</p>
+                    </div>
+
+                    <div class="concepto-card">
+                        <h3>🔢 Operadores</h3>
+                        <p>+, -, *, /, >, <, &&, ||</p>
+                        <p class="desc">Herramientas para operar con datos</p>
+                    </div>
+
+                    <div class="concepto-card">
+                        <h3>⚙️ Funciones</h3>
+                        <p>function, =>, return</p>
+                        <p class="desc">Bloques de código reutilizable</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>&copy; 2024 Clase 2 - Fundamentos de JavaScript</p>
+            <p>Academia DevSeniorCode</p>
+        </footer>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>

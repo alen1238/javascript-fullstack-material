@@ -1,0 +1,657 @@
+/* ============================================
+   RESET Y CONFIGURACIÓN GLOBAL
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colores principales */
+    --color-primario: #2563eb;
+    --color-primario-oscuro: #1e40af;
+    --color-secundario: #10b981;
+    --color-advertencia: #f59e0b;
+    --color-peligro: #ef4444;
+    --color-texto: #1f2937;
+    --color-texto-claro: #6b7280;
+    --color-fondo: #f9fafb;
+    --color-blanco: #ffffff;
+    --color-borde: #e5e7eb;
+    --color-sombra: rgba(0, 0, 0, 0.1);
+    
+    /* Tamaños */
+    --espaciado: 16px;
+    --espaciado-doble: 32px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    line-height: 1.6;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+
+.contenedor {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--espaciado);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.header {
+    text-align: center;
+    padding: var(--espaciado-doble) 0;
+    border-bottom: 3px solid var(--color-primario);
+    margin-bottom: var(--espaciado-doble);
+}
+
+.header h1 {
+    font-size: 36px;
+    color: var(--color-primario);
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 16px;
+    color: var(--color-texto-claro);
+    font-style: italic;
+}
+
+/* ============================================
+   TARJETAS
+   ============================================ */
+
+.tarjeta {
+    background-color: var(--color-blanco);
+    border-radius: 8px;
+    padding: var(--espaciado-doble);
+    margin-bottom: var(--espaciado-doble);
+    box-shadow: 0 2px 8px var(--color-sombra);
+    border: 1px solid var(--color-borde);
+}
+
+.tarjeta h2 {
+    font-size: 24px;
+    color: var(--color-texto);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-primario);
+    padding-bottom: 10px;
+}
+
+.tarjeta h3 {
+    color: var(--color-texto);
+    margin: 20px 0 10px 0;
+    font-size: 18px;
+}
+
+/* ============================================
+   FORMULARIO
+   ============================================ */
+
+.formulario-grupo {
+    margin-bottom: 20px;
+}
+
+.formulario-grupo label {
+    display: block;
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 8px;
+}
+
+.formulario-grupo input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--color-borde);
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.formulario-grupo input:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.validacion {
+    display: block;
+    font-size: 14px;
+    color: var(--color-peligro);
+    margin-top: 5px;
+    height: 20px;
+}
+
+.validacion.error {
+    display: block;
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+
+.boton-calcular,
+.boton-secundario {
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.boton-calcular {
+    width: 100%;
+    background-color: var(--color-primario);
+    color: white;
+    margin-top: 10px;
+}
+
+.boton-calcular:hover {
+    background-color: var(--color-primario-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.boton-calcular:active {
+    transform: scale(0.98);
+}
+
+.boton-secundario {
+    background-color: var(--color-secundario);
+    color: white;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.boton-secundario:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ============================================
+   SECCIÓN DE RESULTADO
+   ============================================ */
+
+.resultado-contenido {
+    text-align: center;
+}
+
+.imc-valor {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--color-primario);
+    margin: 20px 0;
+}
+
+.imc-categoria {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--color-secundario);
+    margin: 15px 0;
+    padding: 15px;
+    background-color: rgba(16, 185, 129, 0.1);
+    border-radius: 6px;
+}
+
+.detalles-resultado {
+    text-align: left;
+    margin: 25px 0;
+    padding: 20px;
+    background-color: var(--color-fondo);
+    border-radius: 6px;
+    border-left: 4px solid var(--color-primario);
+}
+
+.detalles-resultado p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.detalles-resultado strong {
+    color: var(--color-primario);
+}
+
+/* ============================================
+   TABLA DE CATEGORÍAS
+   ============================================ */
+
+.tabla-categorias {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.tabla-categorias th,
+.tabla-categorias td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.tabla-categorias th {
+    background-color: var(--color-primario);
+    color: white;
+    font-weight: 600;
+}
+
+.tabla-categorias tr:hover {
+    background-color: var(--color-fondo);
+}
+
+.categoria-bajo {
+    border-left: 4px solid #3b82f6;
+}
+
+.categoria-normal {
+    border-left: 4px solid #10b981;
+}
+
+.categoria-sobrepeso {
+    border-left: 4px solid #f59e0b;
+}
+
+.categoria-obeso {
+    border-left: 4px solid #ef4444;
+}
+
+/* ============================================
+   DIAGRAMA EPS
+   ============================================ */
+
+.eps-diagrama {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+    padding: 20px;
+    background-color: var(--color-fondo);
+    border-radius: 6px;
+}
+
+.eps-paso {
+    flex: 1;
+    min-width: 150px;
+    background-color: white;
+    border: 2px solid var(--color-primario);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+}
+
+.eps-titulo {
+    font-weight: 700;
+    color: var(--color-primario);
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.eps-contenido {
+    font-size: 13px;
+    color: var(--color-texto-claro);
+}
+
+.eps-contenido p {
+    margin: 5px 0;
+}
+
+.eps-flecha {
+    font-size: 24px;
+    color: var(--color-primario);
+    font-weight: bold;
+}
+
+.formula-detallada {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f0f9ff;
+    border-left: 4px solid var(--color-primario);
+    border-radius: 6px;
+}
+
+.formula-detallada code {
+    display: block;
+    background-color: white;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-family: 'Courier New', monospace;
+    color: var(--color-primario);
+    font-weight: 600;
+}
+
+.ejemplo {
+    margin-top: 15px;
+    color: var(--color-texto);
+}
+
+.calculo {
+    margin-top: 5px;
+    color: var(--color-secundario);
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+}
+
+/* ============================================
+   TIPOS DE DATOS
+   ============================================ */
+
+.tipos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.tipo-item {
+    background-color: var(--color-fondo);
+    border: 2px solid var(--color-borde);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.tipo-nombre {
+    font-weight: 700;
+    color: var(--color-primario);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.tipo-ejemplo {
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: var(--color-secundario);
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.tipo-desc {
+    color: var(--color-texto-claro);
+    font-size: 14px;
+}
+
+.codigo-ejemplo {
+    background-color: #1f2937;
+    color: #d1d5db;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    overflow-x: auto;
+}
+
+.codigo-ejemplo h3 {
+    color: var(--color-secundario);
+    margin-top: 0;
+}
+
+.codigo-ejemplo code {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* ============================================
+   EJERCICIOS
+   ============================================ */
+
+.ejercicio-item {
+    background-color: var(--color-fondo);
+    padding: 20px;
+    margin: 15px 0;
+    border-left: 4px solid var(--color-primario);
+    border-radius: 6px;
+}
+
+.ejercicio-item h3 {
+    margin-top: 0;
+    color: var(--color-texto);
+}
+
+.enunciado {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.enunciado ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.enunciado li {
+    margin: 8px 0;
+    color: var(--color-texto-claro);
+}
+
+.enunciado code {
+    background-color: #f3f4f6;
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: var(--color-primario);
+    font-family: 'Courier New', monospace;
+}
+
+.solucion {
+    margin-top: 15px;
+}
+
+.solucion button {
+    background-color: var(--color-advertencia);
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.solucion button:hover {
+    background-color: #d97706;
+    transform: translateY(-2px);
+}
+
+.solucion pre {
+    background-color: #1f2937;
+    color: #10b981;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+.solucion code {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* ============================================
+   CONCEPTOS
+   ============================================ */
+
+.conceptos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.concepto-card {
+    background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-primario-oscuro) 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.concepto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+}
+
+.concepto-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.concepto-card p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.desc {
+    opacity: 0.9;
+    font-size: 13px;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+
+.main-content {
+    min-height: 60vh;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    background-color: var(--color-texto);
+    color: white;
+    text-align: center;
+    padding: var(--espaciado-doble);
+    border-top: 3px solid var(--color-primario);
+    margin-top: var(--espaciado-doble);
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 28px;
+    }
+    
+    .tarjeta {
+        padding: var(--espaciado);
+    }
+    
+    .eps-diagrama {
+        flex-direction: column;
+    }
+    
+    .eps-flecha {
+        transform: rotate(90deg);
+    }
+    
+    .tipos-grid,
+    .conceptos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .imc-valor {
+        font-size: 36px;
+    }
+    
+    .imc-categoria {
+        font-size: 20px;
+    }
+    
+    .tabla-categorias {
+        font-size: 14px;
+    }
+    
+    .tabla-categorias th,
+    .tabla-categorias td {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenedor {
+        padding: 10px;
+    }
+    
+    .header {
+        padding: var(--espaciado) 0;
+        margin-bottom: var(--espaciado);
+    }
+    
+    .header h1 {
+        font-size: 24px;
+    }
+    
+    .subtitulo {
+        font-size: 14px;
+    }
+    
+    .tarjeta {
+        padding: var(--espaciado);
+        margin-bottom: var(--espaciado);
+    }
+    
+    .tarjeta h2 {
+        font-size: 20px;
+    }
+    
+    .tarjeta h3 {
+        font-size: 16px;
+    }
+    
+    .boton-calcular,
+    .boton-secundario {
+        width: 100%;
+    }
+    
+    .imc-valor {
+        font-size: 28px;
+    }
+    
+    .imc-categoria {
+        font-size: 18px;
+    }
+    
+    .eps-paso {
+        min-width: 120px;
+        padding: 10px;
+    }
+    
+    .formula-detallada code {
+        font-size: 12px;
+    }
+}
