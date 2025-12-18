@@ -1,1 +1,0 @@
-# Carpeta para contenido de clases
