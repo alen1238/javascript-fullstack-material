@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios DOM - Clase 5</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🎯 Ejercicios de Manipulación del DOM</h1>
+    </header>
+
+    <main>
+        <!-- Ejercicio 1: Cambio de Color Simple -->
+        <section class="ejercicio">
+            <h2>� Ejercicio 1: Cambio de Color Simple</h2>
+            <p>Haz click en el botón para cambiar el color de fondo</p>
+            <button id="btn-color" class="btn-principal">Cambiar Color</button>
+            <p id="color-actual" style="margin-top: 1rem; font-weight: bold;"></p>
+        </section>
+
+        <!-- Ejercicio 2: Mostrar y Ocultar Elemento -->
+        <section class="ejercicio">
+            <h2>👁️ Ejercicio 2: Mostrar y Ocultar Elemento</h2>
+            <button id="btn-toggle" class="btn-principal">Mostrar/Ocultar</button>
+            <div id="caja-oculta" class="caja-contenido">
+                Esta es una caja que puede mostrarse y ocultarse
+            </div>
+        </section>
+
+        <!-- Ejercicio 3: Cambio de Texto Dinámico -->
+        <section class="ejercicio">
+            <h2>✏️ Ejercicio 3: Cambio de Texto en Tiempo Real</h2>
+            <input type="text" id="input-texto" class="input-texto" placeholder="Escribe algo...">
+            <p id="texto-dinamico" class="texto-dinamico">Tu texto aparecerá aquí</p>
+        </section>
+
+        <!-- Ejercicio 4: Contador Simple -->
+        <section class="ejercicio">
+            <h2>🔢 Ejercicio 4: Contador Simple</h2>
+            <div class="contador-container">
+                <button id="btn-disminuir" class="btn-contador">-</button>
+                <p id="numero-contador" class="numero-grande">0</p>
+                <button id="btn-aumentar" class="btn-contador">+</button>
+            </div>
+            <button id="btn-reset" class="btn-principal" style="margin-top: 1rem;">Reset</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
