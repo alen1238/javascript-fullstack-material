@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Entorno - Clase 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="contenedor">
+        <!-- HEADER -->
+        <header class="header">
+            <h1>🚀 Verificación de Entorno</h1>
+            <p class="subtitulo">Clase 1: Configuración para Full Stack JavaScript</p>
+            <div class="barra-progreso">
+                <div class="progreso" id="progreso" style="width: 0%"></div>
+            </div>
+            <p class="texto-progreso">Progreso: <span id="porcentaje">0</span>%</p>
+        </header>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            <!-- INSTRUCCIONES GENERALES -->
+            <section class="tarjeta introduccion">
+                <h2>📋 Cómo Usar Esta Guía</h2>
+                <ol>
+                    <li>Lee las instrucciones de instalación para cada herramienta</li>
+                    <li>Abre tu Terminal/PowerShell y ejecuta los comandos indicados</li>
+                    <li>Marca cada elemento como ✅ completado cuando termine</li>
+                    <li>Alcanza el 100% para finalizar la configuración</li>
+                </ol>
+                <p class="consejo">💡 <strong>Consejo:</strong> Mantén esta página abierta mientras configuras tu entorno</p>
+            </section>
+
+            <!-- SECCIÓN NODE.JS -->
+            <section class="tarjeta seccion-herramienta">
+                <div class="encabezado-herramienta">
+                    <h2>⚙️ Node.js y NPM</h2>
+                    <span class="badge badge-critico">Crítico</span>
+                </div>
+
+                <div class="contenido-herramienta">
+                    <p class="descripcion">Node.js es el motor que permite ejecutar JavaScript fuera del navegador. NPM es el gestor de paquetes.</p>
+
+                    <div class="paso">
+                        <h3>Paso 1: Descargar e Instalar</h3>
+                        <ol>
+                            <li>Ve a <a href="https://nodejs.org" target="_blank">nodejs.org</a></li>
+                            <li>Descarga la versión <strong>LTS</strong> (recomendada)</li>
+                            <li>Ejecuta el instalador y sigue los pasos por defecto</li>
+                            <li>Reinicia tu computadora</li>
+                        </ol>
+                    </div>
+
+                    <div class="paso">
+                        <h3>Paso 2: Verificar Instalación</h3>
+                        <p>Abre Terminal/PowerShell y ejecuta:</p>
+                        <div class="codigo-bloque">
+                            <code>node -v</code>
+                            <button class="boton-copiar" onclick="copiarAlPortapapeles('node -v')">Copiar</button>
+                        </div>
+                        <p class="resultado-esperado">Esperado: v18.x.x o superior</p>
+
+                        <p style="margin-top: 15px;">Luego verifica npm:</p>
+                        <div class="codigo-bloque">
+                            <code>npm -v</code>
+                            <button class="boton-copiar" onclick="copiarAlPortapapeles('npm -v')">Copiar</button>
+                        </div>
+                        <p class="resultado-esperado">Esperado: 9.x.x o superior</p>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check-nodejs" onchange="actualizarProgreso()">
+                        <label for="check-nodejs">Node.js y npm instalados correctamente ✓</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN GIT -->
+            <section class="tarjeta seccion-herramienta">
+                <div class="encabezado-herramienta">
+                    <h2>🔧 Git y GitHub</h2>
+                    <span class="badge badge-critico">Crítico</span>
+                </div>
+
+                <div class="contenido-herramienta">
+                    <p class="descripcion">Git es el sistema de control de versiones. Esencial para trabajar en equipo y versionar tu código.</p>
+
+                    <div class="paso">
+                        <h3>Paso 1: Descargar e Instalar</h3>
+                        <ol>
+                            <li>Ve a <a href="https://git-scm.com" target="_blank">git-scm.com</a></li>
+                            <li>Descarga la versión para tu SO (Windows, Mac, Linux)</li>
+                            <li>Ejecuta el instalador con opciones por defecto</li>
+                        </ol>
+                    </div>
+
+                    <div class="paso">
+                        <h3>Paso 2: Verificar Instalación</h3>
+                        <div class="codigo-bloque">
+                            <code>git --version</code>
+                            <button class="boton-copiar" onclick="copiarAlPortapapeles('git --version')">Copiar</button>
+                        </div>
+                        <p class="resultado-esperado">Esperado: git version 2.x.x</p>
+                    </div>
+
+                    <div class="paso">
+                        <h3>Paso 3: Configurar Identidad</h3>
+                        <p>Ejecuta estos comandos en tu Terminal:</p>
+                        <div class="codigo-bloque">
+                            <code>git config --global user.name "Tu Nombre"</code>
+                            <button class="boton-copiar" onclick="copiarAlPortapapeles('git config --global user.name &quot;Tu Nombre&quot;')">Copiar</button>
+                        </div>
+
+                        <div class="codigo-bloque">
+                            <code>git config --global user.email "tu.email@ejemplo.com"</code>
+                            <button class="boton-copiar" onclick="copiarAlPortapapeles('git config --global user.email &quot;tu.email@ejemplo.com&quot;')">Copiar</button>
+                        </div>
+
+                        <p class="consejo">⚠️ Reemplaza "Tu Nombre" y "tu.email@ejemplo.com" con tus datos reales</p>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check-git" onchange="actualizarProgreso()">
+                        <label for="check-git">Git configurado con identidad ✓</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN VSCODE -->
+            <section class="tarjeta seccion-herramienta">
+                <div class="encabezado-herramienta">
+                    <h2>📝 Visual Studio Code</h2>
+                    <span class="badge badge-importante">Importante</span>
+                </div>
+
+                <div class="contenido-herramienta">
+                    <p class="descripcion">Editor de código profesional donde escribirás la mayoría de tu código.</p>
+
+                    <div class="paso">
+                        <h3>Paso 1: Descargar e Instalar</h3>
+                        <ol>
+                            <li>Ve a <a href="https://code.visualstudio.com" target="_blank">code.visualstudio.com</a></li>
+                            <li>Descarga para tu SO</li>
+                            <li>Ejecuta el instalador</li>
+                        </ol>
+                    </div>
+
+                    <div class="paso">
+                        <h3>Paso 2: Instalar Extensiones Recomendadas</h3>
+                        <ol>
+                            <li>Abre VS Code</li>
+                            <li>Presiona <code>Ctrl+Shift+X</code> (o Cmd+Shift+X en Mac)</li>
+                            <li>Busca e instala:
+                                <ul>
+                                    <li><strong>Live Server</strong> - para ver cambios en tiempo real</li>
+                                    <li><strong>Prettier</strong> - para formatear código automáticamente</li>
+                                    <li><strong>ES7+ React/Redux/React-Native snippets</strong> - atajos útiles</li>
+                                    <li><strong>Thunder Client</strong> - para probar APIs</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="paso">
+                        <h3>Paso 3: Abre una Terminal en VS Code</h3>
+                        <p>Presiona <code>Ctrl+`</code> (backtick) y deberías ver una terminal integrada</p>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check-vscode" onchange="actualizarProgreso()">
+                        <label for="check-vscode">VS Code instalado con extensiones ✓</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN ANGULAR CLI -->
+            <section class="tarjeta seccion-herramienta">
+                <div class="encabezado-herramienta">
+                    <h2>🅰️ Angular CLI</h2>
+                    <span class="badge badge-importante">Importante</span>
+                </div>
+
+                <div class="contenido-herramienta">
+                    <p class="descripcion">Herramienta para crear y gestionar proyectos Angular (framework frontend del stack MEAN).</p>
+
+                    <div class="paso">
+                        <h3>Paso 1: Instalar Angular CLI Globalmente</h3>
+                        <p>En tu Terminal/PowerShell, ejecuta:</p>
+                        <div class="codigo-bloque">
+                            <code>npm install -g @angular/cli</code>
+                            <button class="boton-copiar" onclick="copiarAlPortapapeles('npm install -g @angular/cli')">Copiar</button>
+                        </div>
+                        <p class="consejo">⏳ Esto puede tardar 2-5 minutos. ¡Ten paciencia!</p>
+                    </div>
+
+                    <div class="paso">
+                        <h3>Paso 2: Verificar Instalación</h3>
+                        <div class="codigo-bloque">
+                            <code>ng version</code>
+                            <button class="boton-copiar" onclick="copiarAlPortapapeles('ng version')">Copiar</button>
+                        </div>
+                        <p class="resultado-esperado">Esperado: Angular CLI version 16.x.x o superior</p>
+                    </div>
+
+                    <div class="paso">
+                        <h3>Paso 3: Crear tu Primer Proyecto (Opcional)</h3>
+                        <p>Para probar que todo funciona:</p>
+                        <div class="codigo-bloque">
+                            <code>ng new mi-primer-proyecto</code>
+                            <button class="boton-copiar" onclick="copiarAlPortapapeles('ng new mi-primer-proyecto')">Copiar</button>
+                        </div>
+                        <p class="consejo">Cuando pregunte, presiona "Y" para agregar routing</p>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check-angular" onchange="actualizarProgreso()">
+                        <label for="check-angular">Angular CLI instalado correctamente ✓</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN MONGODB -->
+            <section class="tarjeta seccion-herramienta">
+                <div class="encabezado-herramienta">
+                    <h2>🍃 MongoDB Atlas</h2>
+                    <span class="badge badge-recomendado">Recomendado</span>
+                </div>
+
+                <div class="contenido-herramienta">
+                    <p class="descripcion">Base de datos NoSQL en la nube. Necesaria para el proyecto final del módulo.</p>
+
+                    <div class="paso">
+                        <h3>Paso 1: Crear Cuenta en MongoDB Atlas</h3>
+                        <ol>
+                            <li>Ve a <a href="https://www.mongodb.com/cloud/atlas" target="_blank">MongoDB Atlas</a></li>
+                            <li>Haz clic en "Sign Up"</li>
+                            <li>Completa el formulario con tus datos (email, contraseña)</li>
+                            <li>Verifica tu email</li>
+                        </ol>
+                    </div>
+
+                    <div class="paso">
+                        <h3>Paso 2: Crear un Cluster</h3>
+                        <ol>
+                            <li>En el dashboard, haz clic en "Build a Cluster"</li>
+                            <li>Selecciona el plan <strong>Free</strong> (M0)</li>
+                            <li>Elige tu proveedor (AWS, Google Cloud, Azure)</li>
+                            <li>Elige la región más cercana a ti</li>
+                            <li>Haz clic en "Create Cluster"</li>
+                            <li>Espera 5-10 minutos a que se cree</li>
+                        </ol>
+                    </div>
+
+                    <div class="paso">
+                        <h3>Paso 3: Crear Usuario de Base de Datos</h3>
+                        <ol>
+                            <li>Ve a "Database Access" en el menú izquierdo</li>
+                            <li>Haz clic en "Add New Database User"</li>
+                            <li>Ingresa un nombre de usuario y contraseña</li>
+                            <li>Dale rol "readWriteAnyDatabase"</li>
+                            <li>Haz clic en "Add User"</li>
+                        </ol>
+                    </div>
+
+                    <div class="paso">
+                        <h3>Paso 4: Obtener Cadena de Conexión</h3>
+                        <ol>
+                            <li>Ve a "Clusters" y haz clic en "Connect"</li>
+                            <li>Selecciona "Connect Your Application"</li>
+                            <li>Copia la cadena de conexión (connection string)</li>
+                            <li>Reemplaza <code>&lt;password&gt;</code> con tu contraseña</li>
+                        </ol>
+                        <p class="resultado-esperado">Ejemplo: mongodb+srv://usuario:contraseña@cluster.mongodb.net/basedatos</p>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check-mongodb" onchange="actualizarProgreso()">
+                        <label for="check-mongodb">MongoDB Atlas configurado con conexión ✓</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN NAVEGADORES -->
+            <section class="tarjeta seccion-herramienta">
+                <div class="encabezado-herramienta">
+                    <h2>🌐 Navegador Web y DevTools</h2>
+                    <span class="badge badge-importante">Importante</span>
+                </div>
+
+                <div class="contenido-herramienta">
+                    <p class="descripcion">Las Developer Tools son esenciales para debuggear tu código frontend.</p>
+
+                    <div class="paso">
+                        <h3>Navegadores Recomendados</h3>
+                        <ul>
+                            <li><a href="https://www.google.com/chrome" target="_blank">Google Chrome</a> - Excelentes DevTools</li>
+                            <li><a href="https://www.mozilla.org/firefox" target="_blank">Firefox</a> - DevTools poderosas</li>
+                            <li><a href="https://www.microsoft.com/edge" target="_blank">Microsoft Edge</a> - Basado en Chromium</li>
+                        </ul>
+                    </div>
+
+                    <div class="paso">
+                        <h3>Abrir Developer Tools</h3>
+                        <ul>
+                            <li><strong>Windows/Linux:</strong> Presiona <code>F12</code> o <code>Ctrl+Shift+I</code></li>
+                            <li><strong>Mac:</strong> Presiona <code>Cmd+Option+I</code></li>
+                        </ul>
+                    </div>
+
+                    <div class="paso">
+                        <h3>Tabs Importantes</h3>
+                        <ul>
+                            <li><strong>Console:</strong> Para ver mensajes de error y usar console.log()</li>
+                            <li><strong>Elements/Inspector:</strong> Para inspeccionar HTML y CSS</li>
+                            <li><strong>Network:</strong> Para ver peticiones HTTP</li>
+                            <li><strong>Application:</strong> Para ver localStorage y cookies</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check-navegador" onchange="actualizarProgreso()">
+                        <label for="check-navegador">DevTools exploradas y funcionando ✓</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN FINAL -->
+            <section class="tarjeta seccion-final">
+                <h2>🎉 ¡Listo para Comenzar!</h2>
+                <div id="seccion-completa" style="display: none;">
+                    <p class="texto-exito">¡Felicidades! Has completado toda la configuración inicial.</p>
+                    
+                    <div class="resumen-instalaciones">
+                        <h3>Resumen de tu Entorno:</h3>
+                        <ul>
+                            <li>✅ Node.js v18+ (Motor JavaScript)</li>
+                            <li>✅ NPM 9+ (Gestor de paquetes)</li>
+                            <li>✅ Git configurado (Control de versiones)</li>
+                            <li>✅ VS Code (Editor de código)</li>
+                            <li>✅ Angular CLI (Framework frontend)</li>
+                            <li>✅ MongoDB Atlas (Base de datos)</li>
+                            <li>✅ DevTools (Debugger del navegador)</li>
+                        </ul>
+                    </div>
+
+                    <div class="proximo-paso">
+                        <h3>Próximos Pasos:</h3>
+                        <ol>
+                            <li>Lee el material de <strong>Clase 2: Fundamentos de JavaScript</strong></li>
+                            <li>Practica con el ejercicio <strong>Calculadora de IMC</strong></li>
+                            <li>Explora los comandos de Git básicos</li>
+                            <li>Crea tu primer proyecto con Angular CLI</li>
+                        </ol>
+                    </div>
+
+                    <div class="box-importante">
+                        <strong>💡 Consejo Final:</strong> Guarda los comandos que usaste y las contraseñas en un lugar seguro. Los necesitarás más adelante.
+                    </div>
+                </div>
+
+                <div id="seccion-incompleta">
+                    <p>Completa todos los pasos anteriores para ver el resumen final.</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>&copy; Clase 1 - Configuración de Entorno</p>
+            <p>Academia DevSeniorCode</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
